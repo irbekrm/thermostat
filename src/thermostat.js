@@ -32,6 +32,7 @@ Thermostat.prototype.isPowerSaving = function() {
 
 Thermostat.prototype.togglePowerSaving = function() {
   this.powerSaving = !this.powerSaving;
+  this.adjustTemperature();
   return this;
 }
 
@@ -48,6 +49,10 @@ Thermostat.prototype.describe = function() {
   let t = this.getTemperature();
   return t < 18 ? 'low-usage' : t > this.MAX_PS ? 'high-usage' : 'medium-usage';
 };
+
+Thermostat.prototype.adjustTemperature = function() {
+  this.powerSaving && this.temperature > 25 && (this.temperature = 25);
+}
 
 exports.Thermostat = Thermostat;
 })(this);

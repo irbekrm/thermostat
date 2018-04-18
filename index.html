@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <title>Thermostat</title>
 
-    <script src="./src/thermostat.js"></script>
-
   </head>
   <body>
     <button id="increase">Increase Temperature</button>
     <button id="decrease">Decrease Temperature</button>
     <button id="reset">Reset</button>
-    <label class="switch">Power Saving On<input type="checkbox" checked> <span class="slider"></span>
-    </label>
-    <div id="temp"></div>
+    <button id="togglePS">Toggle PS</button>
+    <span id="showPS"></span>
+    <div style="background-color: green; height:100px; width:100px;"  id="temp"></div>
+    <script src="./src/thermostat.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>
