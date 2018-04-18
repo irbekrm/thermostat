@@ -30,7 +30,7 @@ describe("Thermostat", function() {
 		it('allows to toggle off the power saving mode', function() {
 			expect(thermostat.togglePowerSaving().isPowerSaving()).toBe(false);
 		});
-		
+
 		it('allows to toggle on the power saving mode', function() {
 			expect(thermostat.togglePowerSaving().togglePowerSaving().isPowerSaving()).toBe(true);
 		});
@@ -50,7 +50,7 @@ describe("Thermostat", function() {
 			for(let i=0; i<5; i++) { thermostat.up(); }
 			expect(thermostat.reset().getTemperature()).toEqual(20);
 		});
-  
+
   });
   describe('describe the temperature', function() {
 		it('describes temperature below 18 degrees as "low-usage"', function() {
