@@ -4,17 +4,19 @@
   <head>
     <meta charset="utf-8">
     <title>Thermostat</title>
-
+    <link href="styles/index.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <button id="increase">Increase Temperature</button>
+    <button class=".medium-usage" id="increase">Increase Temperature</button>
     <button id="decrease">Decrease Temperature</button>
     <button id="reset">Reset</button>
     <button id="togglePS">Toggle PS</button>
     <span id="showPS"></span>
     <div style="background-color: green; height:100px; width:100px;"  id="temp"></div>
-    <script src="./src/thermostat.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./cities.json"></script>
+    <script src="./src/thermostat.js"></script>
+    <script src="./src/weatherReader.js"
     <script src="./src/index.js"></script>
   </body>
 </html>
