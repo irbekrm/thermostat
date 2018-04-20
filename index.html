@@ -13,10 +13,17 @@
     <button id="togglePS">Toggle PS</button>
     <span id="showPS"></span>
     <div style="background-color: green; height:100px; width:100px;"  id="temp"></div>
+    <div>
+      <form id="tempSelector">
+        <input type="text"id="cityName" name="city"/>
+        <input type="submit"value="Submit"/>
+      </form>
+      <p id="tempDisplay"></p>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./cities.json"></script>
     <script src="./src/thermostat.js"></script>
-    <script src="./src/weatherReader.js"
+    <script src="./src/weatherReader.js"></script>
     <script src="./src/index.js"></script>
   </body>
 </html>

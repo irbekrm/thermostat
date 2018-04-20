@@ -1,17 +1,30 @@
 $(document).ready(function() {
   let thermostat = new Thermostat();
-  let x = thermostat.describe();
+  let weatherReader = new WeatherReader();
   
   showTemperature();
   displayPS();
-  requestData();
-
-  
+  getAndSetTemperature('Riga');
   
   $("#increase").on("click", increase);
   $("#decrease").on("click", decrease);
   $("#reset").on("click", reset);
   $("#togglePS").on("click", togglePS);
+  $("#tempSelector").on("submit", updateCityTemperature);
+
+  async function updateCityTemperature(event) {
+    event.preventDefault();
+    let name = $("#cityName").val();
+    await getAndSetTemperature(name);
+    event.preventDefault();
+  }
+  
+  async function getAndSetTemperature(name) {
+    let temp = await weatherReader.updateData(name);
+    let description = `Temperature in ${name} is ${temp} degrees by Celsius`;
+    $('#tempDisplay').html(description);
+  }
+    
 
   function reset() {
     thermostat.reset();
@@ -54,22 +67,4 @@ $(document).ready(function() {
     showUsage();
     showTemperature();
   }
-
-  function requestData() {
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = showWeather;
-    xmlhttp.open('GET',"http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=e69c1c89d6504818fca4b0e0afa494c1&q=London&units=metric");
-    xmlhttp.send();
-  }
-
-  function showWeather() {
-    if(xmlhttp.readyState == XMLHttpRequest.DONE) {
-      let text = xmlhttp.responseText;
-      jsonText = JSON.parse(text);
-      for(let i in jsonText) { console.log(i); }
-      console.log("Main is ", jsonText['main']['temp']);
-    }
-  }
 });
-
-
